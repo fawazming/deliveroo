@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deliveroo Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+    html {
+        scroll-behavior: smooth;
+    }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+            }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body class="font-sans min-h-screen">
+    <header class="bg-green-600 px-5 rounded-t-2xl pt-12 flex justify-between h-32">
+    </header>
+    <main class="text-center m-6 mb-10">
+        <h3 class="text-center text-2xl" >Sign Up</h3>
+
+        <form action="login.html" id="signupForm">
+
+            <input type="text" name="" placeholder="Full Name" class="w-10/12 h-10 rounded-lg my-4 text-xl px-3 border-2 focus:border-green-400 focus:shadow-xl">
+
+            <input type="email" name="" placeholder="Email" autocomplete="email" class="w-10/12 h-10 rounded-lg my-4 text-xl px-3 border-2 focus:border-green-400 focus:shadow-xl">
+
+            <input type="password" id="pass" required placeholder="Password" class="w-10/12 h-10 rounded-lg my-4 text-xl px-3 border-2 focus:border-green-400 focus:shadow-xl">
+            <p class="text-red-500 m-0" id="pinfo"></p>
+            <input type="password" id="confirmPass" required placeholder="Confirm Password" class="w-10/12 h-10 rounded-lg my-4 text-xl px-3 border-2 focus:border-green-400 focus:shadow-xl">
+            <br>
+            <input type="submit" class="mt-3 bg-green-600 px-8 py-2 rounded-lg text-white text-xl shadow-xl border-0 cursor-pointer shadow-xl" value="Sign Up">
+        </form>
+
+        <p class="mt-12">Already have an account? <a href="login.html">Login</a></p>
+    </main>
+
+    <script type="text/javascript">
+        let signupForm = document.querySelector('#signupForm');
+        let pass = document.querySelector('#pass');
+        let confirmpass = document.querySelector('#confirmPass');
+        signupForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            console.log(pass.value, confirmpass.value);
+            if(pass.value == confirmpass.value){
+                signupForm.submit();
+            }else{
+                document.querySelector('#pinfo').innerHTML = `Password not the same`
+            }
+            // alert(`${pass}, ${confirmPass}`);
+        })
+
+    </script>
+</body>
+</html>
